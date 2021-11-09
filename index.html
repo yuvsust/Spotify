@@ -19,42 +19,62 @@
 
     <div class="container">
         <div id="songList">
-            <h1>Icche Ghuri - Shironamhin</h1>
+            <h1>Best and Lost Diamonds of Shironamhin</h1>
             <div class="songItemContainer">
                 <div class="songItem">
-                    <img src="img/covers/1.jpg" alt="1">
-                    <span>Borsha </span> 
-                    <span id="songDetails"><span id="timestamp">5:01 <i class="far fa-play-circle"></i> </span></span>
+                    <img src="" alt="1">
+                    <span class="songName">Borsha </span> 
+                    <span id="songDetails"><span id="timestamp">5:01 <i class="far fa-play-circle songPlayButton"></i> </span></span>
                 </div>
                 <div class="songItem">
-                    <img src="img/covers/1.jpg" alt="1">
-                    <span>Pakhi </span> 
-                    <span id="songDetails"><span id="timestamp">4:16 <i class="far fa-play-circle"></i> </span></span>
+                    <img src="" alt="1">
+                    <span class="songName">Pakhi </span> 
+                    <span id="songDetails"><span id="timestamp">4:16 <i class="far fa-play-circle songPlayButton"></i> </span></span>
                 </div>
                 <div class="songItem">
-                    <img src="img/covers/1.jpg" alt="1">
-                    <span>Cafeteria </span> 
-                    <span id="songDetails"><span id="timestamp">4:19 <i class="far fa-play-circle"></i> </span></span>
+                    <img src="" alt="1">
+                    <span class="songName">Cafeteria </span> 
+                    <span id="songDetails"><span id="timestamp">4:19 <i class="far fa-play-circle songPlayButton"></i> </span></span>
                 </div>
                 <div class="songItem">
-                    <img src="img/covers/1.jpg" alt="1">
-                    <span>Shodesh </span> 
-                    <span id="songDetails"><span id="timestamp">4:02 <i class="far fa-play-circle"></i> </span></span>
+                    <img src="" alt="1">
+                    <span class="songName">Hashimukh </span> 
+                    <span id="songDetails"><span id="timestamp">4:02 <i class="far fa-play-circle songPlayButton"></i> </span></span>
                 </div>
                 <div class="songItem">
-                    <img src="img/covers/1.jpg" alt="1">
-                    <span>Nisshongo </span> 
-                    <span id="songDetails"><span id="timestamp">5:12 <i class="far fa-play-circle"></i> </span></span>
+                    <img src="" alt="1">
+                    <span class="songName">Abar Hashimukh </span> 
+                    <span id="songDetails"><span id="timestamp">5:12 <i class="far fa-play-circle songPlayButton"></i> </span></span>
                 </div>
                 <div class="songItem">
-                    <img src="img/covers/1.jpg" alt="1">
-                    <span>Icche Ghuri </span> 
-                    <span id="songDetails"><span id="timestamp">4:47 <i class="far fa-play-circle"></i> </span></span>
+                    <img src="" alt="1">
+                    <span class="songName">Icche Ghuri </span> 
+                    <span id="songDetails"><span id="timestamp">4:47 <i class="far fa-play-circle songPlayButton"></i> </span></span>
                 </div>
                 <div class="songItem">
-                    <img src="img/covers/1.jpg" alt="1">
-                    <span>Ditio Jibon </span> 
-                    <span id="songDetails"><span id="timestamp">6:57 <i class="far fa-play-circle"></i> </span></span>
+                    <img src="" alt="1">
+                    <span class="songName">Ei Obelay </span> 
+                    <span id="songDetails"><span id="timestamp">6:57 <i class="far fa-play-circle songPlayButton"></i> </span></span>
+                </div>
+                <div class="songItem">
+                    <img src="" alt="1">
+                    <span class="songName">Brishtikabbo </span> 
+                    <span id="songDetails"><span id="timestamp">6:57 <i class="far fa-play-circle songPlayButton"></i> </span></span>
+                </div>
+                <div class="songItem">
+                    <img src="" alt="1">
+                    <span class="songName">Valobasha Megh </span> 
+                    <span id="songDetails"><span id="timestamp">6:57 <i class="far fa-play-circle songPlayButton"></i> </span></span>
+                </div>
+                <div class="songItem">
+                    <img src="" alt="1">
+                    <span class="songName">Jadukor </span> 
+                    <span id="songDetails"><span id="timestamp">6:57 <i class="far fa-play-circle songPlayButton"></i> </span></span>
+                </div>
+                <div class="songItem">
+                    <img src="" alt="1">
+                    <span class="songName">Jadukor </span> 
+                    <span id="songDetails"><span id="timestamp">6:57 <i class="far fa-play-circle songPlayButton"></i> </span></span>
                 </div>
             </div>
         </div>
@@ -62,17 +82,22 @@
     </div>
 
     <div class="bottom">
-        <input type="range" name="range" id="myProgressBar" min="0" max="100">
+        <input type="range" name="range" id="myProgressBar" min="0" max="100" value="0" step="0.00000001">
         <div class="icons">
             <!-- Fontawsome icons -->
-            <i class="fas fa-2x fa-step-backward"></i>
-            <i class="far fa-2x fa-play-circle"></i>
-            <i class="fas fa-2x fa-step-forward"></i>
+            <i class="fas fa-2x fa-step-backward" id= "backwardPlay"></i>
+            <i class="far fa-2x fa-play-circle" id= "masterPlay"></i>
+            <i class="fas fa-2x fa-step-forward" id= "forwardPlay"></i>
         </div>
         <div class="songInfo">
-            <img src="img/playing.gif" width="42px" alt="">
-            <span>Icche Ghuri</span>
+            <img src="img/playing.gif" width="42px" alt="" id="gif">
+            <span id="bottomSongName">Icche Ghuri</span>
+        </div>
+        <div id="volumeInfo">
+            <span>Volume</span>
+            <input type="range" id="volumeBar" name="range" min="0" max="100" value="50" step="1">
         </div>
     </div>
+    <script src="js/script.js"></script>
 </body>
 </html>

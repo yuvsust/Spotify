@@ -91,10 +91,25 @@ nav ul li img {
     border-radius: 12px;
     justify-content: space-between;
     align-items: center;
+    /* flex-wrap: wrap; */
+}
+
+.playing {
+    display: flex;
+    height: 60;
+    background-color: white;
+    color: black;
+    width: 60%;
+    margin: 10px 0;
+    border-radius: 12px;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bolder;
 }
 
 .songItem img {
-    width: 34px;
+    width: 43px;
+    height: 43px;
     margin: 0 20px;
     border-radius: 34px;
 }
@@ -118,7 +133,17 @@ nav ul li img {
     font-family: 'Varela Round', sans-serif;
 }
 
+#volumeInfo {
+    position: absolute;
+    right: 9.5vw;
+}
+
+#volumeInfo span {
+    font-family: 'Varela Round', sans-serif;
+    margin-right: 12px;
+}
+
 .songInfo img {
     opacity: 0;
-    transition: opacity 1s ease-in;
+    transition: opacity 0.4s ease-in;
 }
