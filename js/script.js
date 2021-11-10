@@ -25,6 +25,15 @@ let songs = [
 let audioElement = new Audio(songs[audioIndex].filePath);
 audioElement.volume = volumeBar.value / 100;
 
+// First We update all songs timestamp in the list
+// for (let i = 0; i < songs.length; i++) {
+//     audioElement.src = songs[i].filePath;
+//     audioElement.play();
+//     // document.getElementsByClassName("timestamp")[i].innerText = audioElement.duration;
+//     console.log(document.getElementsByClassName("timestamp")[i].innerText, audioElement.duration);
+// }
+// audioElement.src = songs[0].filePath;
+
 // Set Song name and cover picture
 songItems.forEach((element, i) => {
     element.getElementsByTagName('img')[0].src = songs[i].coverPath;
@@ -68,6 +77,26 @@ let resumeMusic = () => {
     document.getElementsByClassName("songPlayButton")[audioIndex].classList.add('fa-pause-circle');
 }
 
+let changeAudioIndex = (isIncrement) => {
+    if(isIncrement == true) {
+        audioIndex += 1;
+        if(audioIndex > 10) audioIndex = 0;
+    }
+    else if (isIncrement == false) {
+        audioIndex -= 1;
+        if(audioIndex < 0 ) audioIndex = 10;
+    }
+}
+
+let displayCurrentTime = (time) => {
+    let min = parseInt(time / 60);
+    let sec = parseInt(time % 60);
+    let timeString = `${min} : ${sec}`;
+    if(min <= 9)    timeString = "0" + timeString;
+    if(sec <= 9)    timeString = timeString.slice(0, 5) + "0" + timeString.slice(5);
+    return timeString;
+}
+
 // Handle play - pause
 masterPlayButton.addEventListener("click", () => {
     if(audioElement.paused || audioElement.currentTime <= 0) {
@@ -80,17 +109,22 @@ masterPlayButton.addEventListener("click", () => {
 
 // Handle Progress Bar 
 audioElement.addEventListener("timeupdate", () => {
+    document.getElementById("songCurrentTime").innerText = displayCurrentTime(audioElement.currentTime);
     let progress = (audioElement.currentTime / audioElement.duration) * 100;
     myProgressBar.value = progress;
     if (myProgressBar.value == 100) {
-        masterPlayButton.classList.remove("fa-pause-circle");
-        masterPlayButton.classList.add("fa-play-circle");
-        gif.style.opacity = 0;
+        changeAudioIndex(true);
+        playMusic();
     }
 })
 
 myProgressBar.addEventListener("change", () => {
     audioElement.currentTime = myProgressBar.value * audioElement.duration / 100;
+    console.log(audioElement.currentTime);
+    if (audioElement.currentTime == audioElement.duration) {
+        changeAudioIndex(true);
+        playMusic();
+    }
 })
 
 // Handle Volume Bar
@@ -129,13 +163,11 @@ Array.from(document.getElementsByClassName("songPlayButton")).forEach( (element,
 })
 
 backwardPlayButton.addEventListener("click", () => {
-    audioIndex -= 1;
-    if(audioIndex < 0 ) audioIndex = 10;
+    changeAudioIndex(false);
     playMusic();
 })
 
 forwardPlayButton.addEventListener("click", () => {
-    audioIndex += 1;
-    if(audioIndex > 10) audioIndex = 0;
+    changeAudioIndex(true);
     playMusic();
 })
